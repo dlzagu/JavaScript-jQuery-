@@ -1,0 +1,250 @@
+* toggle
+
+버튼 클릭시 저기에 클래스명을 추가해주세요
+
+ 
+
+버튼 눌렀을 때 show 라는 클래스를 저기에 추가해봅시다.
+
+class명을 원하는 요소에 추가하는 법은 
+
+셀렉터로찾은요소.classList.add('클래스명') 이렇게 쓰면 됩니다.
+
+class명을 원하는 요소에서 제거하는 법은 
+
+셀렉터로찾은요소.classList.remove('클래스명') 이렇게 쓰면 됩니다.
+
+당연히 구글 검색해봐야 알지 생각해서 나오는 것들이 아닙니다. 
+
+ 
+
+ 
+
+ 
+
+document.getElementsByClassName('navbar-toggler')[0].addEventListener('click', function(){
+  document.getElementsByClassName('list-group')[0].classList.add('show');
+});
+▲ 그래서 class="navbar-toggler" 가진 요소 클릭하면
+
+class="list-group"인 요소에 show라는 클래스명 추가하라고 코드를 짰습니다.
+
+이제 버튼누르면 서브메뉴가 잘 보이는군요. 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+버튼 한 번 더 누르면 숨기기
+
+ 
+
+버튼을 한 번 더 누르면 서브메뉴를 숨기고 싶은겁니다.
+
+그럼 당연히 노예 컴퓨터에게 이렇게 명령내리면 됩니다.
+
+"버튼 한 번 더 누르면 show 클래스를 제거해주세요"
+
+근데 이건 나중에 if문, 변수문법을 배우면 직접 만들어볼 수 있기 때문에
+
+좀 쉬운 방법을 먼저 알려드리자면 
+
+ 
+
+ 
+
+document.getElementsByClassName('navbar-toggler')[0].addEventListener('click', function(){
+  document.getElementsByClassName('list-group')[0].classList.toggle('show');
+});
+.classList.toggle() 쓰면
+
+- 클래스명이 있으면 제거하고
+
+- 클래스명이 없으면 붙여줍니다.
+
+그래서 왔다갔다하는 UI 만들 때 유용하게 쓰면 되겠습니다.
+
+
+*제이쿼리
+jQuery 써서 html 변경하려면
+
+ 
+
+<p class="hello">안녕</p>
+
+<script>
+  $('.hello').html('바보'); 
+</script>
+이렇게 코드 양이 절반으로 줄어들어서 쓰는 것일 뿐입니다. 
+
+$ 이건 querySelector와 동일하게 사용하면 됩니다. 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+jQuery 써서 스타일 변경하려면
+
+ 
+
+<p class="hello">안녕</p>
+
+<script>
+  $('.hello').css('color', 'red');
+</script>
+이러면 css 스타일 변경이 가능합니다.
+
+ 
+
+(주의) html 셀렉터로 찾으면 html 함수들을 뒤에 붙여야하고
+
+jQuery 셀렉터로 찾으면 jQuery 함수들을 뒤에 붙여야 잘됩니다. 
+
+$('어쩌구').innerHTML 이건 안된다는 소리입니다. 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+jQuery 써서 class 탈부착하려면 
+
+ 
+
+<p class="hello">안녕</p>
+
+<script>
+  $('.hello').addClass('클래스명');
+  $('.hello').removeClass('클래스명');
+  $('.hello').toggleClass('클래스명');
+</script>
+이러면 됩니다. toggleClass는 왔다갔다 토글해줍니다.
+
+ 
+
+ 
+
+ 
+
+ 
+
+html 여러개를 바꾸려면
+
+ 
+
+<p class="hello">안녕</p>
+<p class="hello">안녕</p>
+<p class="hello">안녕</p>
+
+<script>
+  document.querySelectorAll('.hello')[0].innerHTML = '바보';
+  document.querySelectorAll('.hello')[1].innerHTML = '바보';
+  document.querySelectorAll('.hello')[2].innerHTML = '바보';
+</script>
+<p> 태그 3개 내용을 일괄적으로 '바보'로 바꾸려면
+
+그냥 자바스크립트는 저렇게 3줄 쓰면 됩니다.
+
+ 
+
+ 
+
+<p class="hello">안녕</p>
+<p class="hello">안녕</p>
+<p class="hello">안녕</p>
+
+<script>
+  $('.hello').html('바보');
+</script>
+그런데 $() 셀렉터는 그냥 querySelectorAll처럼 여러개가 있으면 전부 찾아줍니다.
+
+그리고 거기에 [0] 이런 식으로 순서지정해줄 필요없이 냅다 .html() 붙이면
+
+셀렉터로 찾은 모든 요소를 한 번에 조작하고 변경해줄 수 있습니다. 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+이벤트리스너는
+
+ 
+
+<p class="hello">안녕</p>
+<button class="test-btn">버튼</button>
+
+<script>
+  $('.test-btn').on('click', function(){
+    어쩌구~
+  });
+</script>
+addEventListener 대신 on 쓰면 똑같습니다.
+
+on은 $() 이걸로 찾은 것들에만 붙일 수 있습니다. 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+UI 애니메이션은
+
+ 
+
+<p class="hello">안녕</p>
+<button class="test-btn">버튼</button>
+
+<script>
+  $('.test-btn').on('click', function(){
+    $('.hello').fadeOut();
+  });
+</script>
+.hide() 는 사라지게
+
+.fadeOut() 은 서서히 사라지게
+
+.slideUp() 은 줄어들며 사라지게 만들어줍니다. 
+
+간단한 애니메이션은 이런 식으로 쉽게 사용가능합니다.
+
+ 
+
+애니메이션을 반대로 주고 싶으면 show() fadeIn() slideDown() 이런게 있습니다. 
+
+아니면 fadeToggle() 이런 것도 있음 
+
+ 
+
+ 
