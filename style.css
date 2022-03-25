@@ -36,3 +36,8 @@
     visibility: visible;
     opacity: 1;
 }
+
+.main-hg{
+    padding: 100px 20px;
+    background:lightgray;
+}
