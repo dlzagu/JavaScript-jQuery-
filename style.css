@@ -1,0 +1,6 @@
+.alert-box{
+    display: block;
+    color: powderblue;
+    background-color: rgb(74, 123, 221);
+    border-radius: 10px;
+}
