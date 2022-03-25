@@ -1,6 +1,14 @@
-.alert-box{
+.list-group{
+    display:none;
+}
+.show{
     display: block;
-    color: powderblue;
-    background-color: rgb(74, 123, 221);
-    border-radius: 10px;
+}
+
+.list-group{
+    position: absolute;
+    top:55px;
+    right: 0;
+    width: 30%;
+    justify-content: end;
 }
