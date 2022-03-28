@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <p>태조 이성계가 태어난 년도는?</p>
+<input type="text" id="answer">
+<button id="send-answer">제출</button>
+
+<script>
+    let cnt = 0;
+    
+  $("#send-answer").on("click", function(){
+    const 유저답안 = document.getElementById("answer").value;
+        cnt+=1;
+        console.log(cnt);
+      if( 유저답안== 1335){
+          alert("성공");
+      }
+          
+      else if(cnt>3 && 유저답안!=1335 ){
+            alert("멍청이");
+        
+      }
+  });
+
+//   var 유저답안 = document.querySelector('#answer').value;
+
+// 이걸 이벤트리스너 바깥에 넣으면 왜 안되나요? 바깥에 넣으면 새로고침 하기 전까지는 유저입력값이 계속 똑같기 때문 ! !
+</script>
+</body>
+</html>
