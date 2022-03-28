@@ -59,6 +59,10 @@
         <h4>Shirt On Sale</h4>
         <button type="button" class="btn btn-danger" id="login">로그인</button>
     </div>
+
+    <div class="alert alert-danger">
+        <span id="seconds">5</span>초 이내 구매시 사은품 증정!
+    </div>
    
 
 
@@ -67,17 +71,16 @@
         crossorigin="anonymous"></script>
     <script src="app.js"></script>
     <script>
-        let btnCount = 0;
-        $("#dark-button").on("click", function(){
-            btnCount++;
-            if(btnCount%2!=0){
-            $("#dark-button").html("Light 🔄"); 
-        }else{
-            $("#dark-button").html("Dark 🔄"); 
-        }
-       
-    });
-
+        let seconds = 5
+        setInterval(function(){
+            if(document.querySelector("#seconds").innerText==0){
+                $(".alert-danger").hide();
+            }
+            document.querySelector("#seconds").innerHTML = seconds-1;
+            seconds--;
+            
+            
+        },1000);
 
     </script>
 </body>

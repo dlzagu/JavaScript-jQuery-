@@ -25,3 +25,13 @@ $('#close').on('click', function(){
         alert('6자 이상의 비밀번호를 입력하세요');
     }
 });
+let btnCount = 0;
+$("#dark-button").on("click", function(){
+    btnCount++;
+    if(btnCount%2!=0){
+    $("#dark-button").html("Light 🔄"); 
+}else{
+    $("#dark-button").html("Dark 🔄"); 
+}
+
+});

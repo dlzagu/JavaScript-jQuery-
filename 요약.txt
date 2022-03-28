@@ -245,6 +245,42 @@ UI 애니메이션은
 
 아니면 fadeToggle() 이런 것도 있음 
 
+-----------------------------------------------------------------------------------
+ 2장
+자바스크립트 기본 함수 중에 setTimeout() 이라는게 있습니다.
+
+이거 쓰면 X초 후에 코드를 실행해줍니다.
+
+ 
+
+setTimeout(function(){ 실행할코드~ }, 기다릴시간);
+위처럼 사용하면 됩니다.
+
+시간은 ms 단위로 적으면 됩니다. (1ms는 1000분의 1초)
+
+!!제이쿼리를 사용한 함수 $().hide();는 document.querySelector().style.display='none';이랑 같음 !! 
+
+X초마다 코드를 실행하고 싶으면 setInterval()
+
+ 
+
+X초마다 코드를 실행하고 싶으면 setTimeout() 을 연달아서 여러개 쓰거나
+
+ 
+
+setInterval(function(){ 실행할코드~ }, 기다릴시간);
+위처럼 setInterval 써도 됩니다.
+
+그럼 X초마다 안에 있는 코드를 실행해줍니다. 
+
+ 
+
+ 
+
+setInterval(function(){ 
+  console.log('안녕')
+}, 1000);
+ 
  
 
  
