@@ -15,15 +15,22 @@ $('#close').on('click', function(){
 
  $('form').on('submit', function(e){
     e.preventDefault();
-    if (document.querySelector('#id-input').value == ""){
+    const idValue = document.querySelector('#id-input').value;
+    const psdValue = document.querySelector('#password-input').value;
+    if (idValue == ""){
         alert('아이디를 입력하시오');
+    }
+    if (/\S+@S+.\S+/.test(idValue)==false){
+        alert('이메일 형식으로입력하시오');
+    }
         
-    }
-    if (document.querySelector('#password-input').value == "") {
+    
+    if (psdValue == "" ) {
         alert('비밀번호를 입력하시오');
-    }else if(document.querySelector('#password-input').value.length < 6){
+    }else if(psdValue.length < 6){
         alert('6자 이상의 비밀번호를 입력하세요');
-    }
+    }else if(/[A-Z]/.test(psdValue)==false)
+        alert('하나 이상의 대문자를 입력하세요');
 });
 let btnCount = 0;
 $("#dark-button").on("click", function(){
