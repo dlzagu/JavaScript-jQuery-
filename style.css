@@ -25,7 +25,7 @@
   height : 100%;
   position : fixed;
   background : rgba(0,0,0,0.5);
-  z-index : 5;
+  z-index : 6;
   padding: 30px;
   transition: all 1.2s;
 }
@@ -44,4 +44,31 @@
 .main-hg{
     padding: 100px 20px;
     background:lightgray;
+}
+
+.slide-container{
+  width: 300vw;
+  transition: all 1s;
+  
+  
+}
+
+.slide-box {
+  width: 100vw;
+  float:left;
+}
+
+.slide-box img{
+  width: 100%;
+}
+.navbar{
+ 
+  padding: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+}
+.navbar-brand{
+  font-size: 30px;
+  transition: all 1s;
 }
