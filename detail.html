@@ -69,10 +69,10 @@
         <select class="form-select mt-2">
           <option>모자</option>
           <option>셔츠</option>
+          <option>바지</option>
         </select>
         <select class="form-select mt-2 size">
-          <option>95</option>
-          <option>100</option>
+          
         </select>
       </form>
       
@@ -99,11 +99,25 @@
         crossorigin="anonymous"></script>
     <script src="./tab.js"></script>
     <script>
-      $('.form-select').eq(0).on('input', function(e){
-        if( e.currentTarget.value=='셔츠'){
-          $('.form-select').eq(1).toggleClass('size');
-        }else if(e.currentTarget.value=='모자'){
-          $('.form-select').eq(1).toggleClass('size');
+      
+      $('.form-select').eq(0).on('input', function(){
+        var value = this.value;
+        var sizeSelect = $('.form-select').eq(1);
+        var shirtSize = [90, 95, 100, 105];
+        var pantsSize = [28, 30, 32, 34];
+        function sizeCall(kindOfCloth){
+          sizeSelect.removeClass('size');
+         sizeSelect.html("");
+         kindOfCloth.forEach(function(item){
+           sizeSelect.append(`<option>${item}</option>`);
+         })
+        }
+        if(value=='셔츠'){
+          sizeCall(shirtSize);
+        }else if(value=='바지'){
+         sizeCall(pantsSize);
+         }else if( value=='모자'){
+         sizeSelect.addClass('size');
         }
       })
         
