@@ -51,6 +51,7 @@
           <img src="https://via.placeholder.com/600" class="w-100">
           <h5>${a.title}</h5>
           <p>가격 : ${a.price}</p>
+          <button class="buy">구매</button>
           </div>`
       $('.row').append(list);
     });
@@ -59,22 +60,16 @@
    상품가져오기(products);
 
 
-    $.get('https://codingapple1.github.io/price.json').done(function (data) {
-      console.log(data.price);
-    })
-      .fail(function (error) {
-        console.log(실패함);
-      });
 
-      let cnt = 0;
+      let productcnt = 0;
     $('.more-products').click(function () {
-      if(cnt == 0){
+      if(productcnt == 0){
         $.get('https://codingapple1.github.io/js/more1.json').done(function (data) {
         상품가져오기(data);
         })
-        cnt ++; 
-        console.log(cnt)
-        }else if(cnt==1){
+        productcnt ++; 
+        console.log(productcnt)
+        }else if(productcnt==1){
         $.get('https://codingapple1.github.io/js/more2.json').done(function (data) {
         상품가져오기(data);
       })
@@ -124,6 +119,30 @@
           </div>`
       $('.row').append(list);
     });
+    })
+
+    let itemName =[];
+    
+    
+
+    $('.buy').click(function(e){
+      
+      var title = {상품명:`${$(e.target).siblings('h5').text()}`, 수량:1};
+      if(localStorage.getItem('title') != null){
+        var newTitle =  JSON.parse(localStorage.getItem('title'));
+        newTitle.forEach((a,i)=>{
+          if(newTitle[i].상품명== $(e.target).siblings('h5').text()){
+            newTitle.splice(i,1);
+            newTitle.push({상품명:`${$(e.target).siblings('h5').text()}`, 수량:a.수량+1})
+            localStorage.setItem('title', JSON.stringify(newTitle));
+          }
+        })
+        // newTitle.push(title);
+        // localStorage.setItem('title', JSON.stringify(newTitle));
+      }else{
+        localStorage.setItem('title', JSON.stringify([title]));
+      }
+      
     })
 
   </script>
