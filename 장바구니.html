@@ -32,7 +32,7 @@
     data.forEach((a,i) => {
       var list = `<div class="col-sm-4">
           
-          <h5>상품명${i+1}:${a}</h5>
+          <h5>상품명${i+1}:${a.상품명} 수량: ${a.수량}</h5>
          
           </div>`
       $('.container').append(list);
