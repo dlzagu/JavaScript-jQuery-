@@ -129,18 +129,26 @@
       
       var title = {상품명:`${$(e.target).siblings('h5').text()}`, 수량:1};
       if(localStorage.getItem('title') != null){
+        var cnt =0;
         var newTitle =  JSON.parse(localStorage.getItem('title'));
         newTitle.forEach((a,i)=>{
           if(newTitle[i].상품명== $(e.target).siblings('h5').text()){
             newTitle.splice(i,1);
             newTitle.push({상품명:`${$(e.target).siblings('h5').text()}`, 수량:a.수량+1})
+            newTitle.sort((x, y) => x.상품명.toLowerCase() < y.상품명.toLowerCase() ? 1 : -1);
             localStorage.setItem('title', JSON.stringify(newTitle));
+            cnt ++ 
+            
           }
         })
-        // newTitle.push(title);
-        // localStorage.setItem('title', JSON.stringify(newTitle));
+        if(cnt == 0) {
+        newTitle.push(title);
+        localStorage.setItem('title', JSON.stringify(newTitle));
+        }
+        
       }else{
         localStorage.setItem('title', JSON.stringify([title]));
+        
       }
       
     })
