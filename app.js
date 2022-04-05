@@ -113,4 +113,11 @@ $('.slide-before').on('click', function(){
      $('.scroll-bar').css('width', `${100/(windowScrollHeight-754)*windowScroll}%`);
      
    })
+
+   $('.black-bg').on('click', function(e){
+    if(event.target == document.querySelector('.black-bg')){
+     $('.black-bg').removeClass('black-bg-show');
+    }
+  
+  })
    
